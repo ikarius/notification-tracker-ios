@@ -14,7 +14,7 @@
 
 static NSMutableSet *_notificationsFiltered = nil;
 
-+ (instancetype)sharedInstance
++ (instancetype)_sharedInstance
 {
     static IKNotificationLogger *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -22,10 +22,17 @@ static NSMutableSet *_notificationsFiltered = nil;
     dispatch_once(&onceToken, ^{
         _notificationsFiltered = [NSMutableSet new];
         sharedInstance = [[[self class] alloc] _init];
+        
+        NSLog(@"Now logging notifications");
     });
+    
     return sharedInstance;
 }
 
++ (void)start
+{
+    [IKNotificationLogger _sharedInstance];
+}
 
 + (void)trackNotification:(NSString*)notificationName
 {
@@ -46,7 +53,7 @@ static NSMutableSet *_notificationsFiltered = nil;
         {
             [_notificationsFiltered removeAllObjects];
             
-            [[IKNotificationLogger sharedInstance] _initFiltersFromPlistFile];
+            [[IKNotificationLogger _sharedInstance] _initFiltersFromPlistFile];
         }
     }
 }
@@ -122,7 +129,5 @@ void _SRFglobalNotificationCallback (CFNotificationCenterRef center,
         }
     }
 }
-
-
 
 @end
