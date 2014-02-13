@@ -7,12 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "IKNotificationLogger.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [IKNotificationLogger sharedInstance];
+    
     return YES;
 }
 							
