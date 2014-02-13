@@ -20,8 +20,8 @@ static NSMutableSet *_notificationsFiltered = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[[self class] alloc] _init];
         _notificationsFiltered = [NSMutableSet new];
+        sharedInstance = [[[self class] alloc] _init];
     });
     return sharedInstance;
 }
@@ -45,6 +45,8 @@ static NSMutableSet *_notificationsFiltered = nil;
         if (_notificationsFiltered)
         {
             [_notificationsFiltered removeAllObjects];
+            
+            [[IKNotificationLogger sharedInstance] _initFiltersFromPlistFile];
         }
     }
 }
@@ -59,12 +61,17 @@ static NSMutableSet *_notificationsFiltered = nil;
                           userInfo:nil];
 }
 
+static NSString* const kTrackerConfigFile = @"NotificationTrackerFile";
+
 - (id)_init
 {
     self = [super init];
     
     if (self)
     {
+        // Load from file if exists:
+        [self _initFiltersFromPlistFile];
+        
         // Intercept and log notifications:
         CFNotificationCenterAddObserver(CFNotificationCenterGetLocalCenter(),
                                         NULL,
@@ -75,6 +82,26 @@ static NSMutableSet *_notificationsFiltered = nil;
     }
     
     return self;
+}
+
+
+- (void)_initFiltersFromPlistFile
+{
+    // Check if a plist exist
+    NSString* filename = [[[NSBundle bundleForClass:self.class] infoDictionary] valueForKey:kTrackerConfigFile];
+    if (filename)
+    {
+        // TODO: loading mechanism
+        NSString* path = [[NSBundle bundleForClass:self.class] pathForResource:filename ofType:@"plist"];
+        if (path)
+        {
+            _notificationsFiltered = [[NSMutableSet alloc ] initWithArray:[NSArray arrayWithContentsOfFile:path]];
+        }
+        else
+        {
+            NSLog(@"Warning: Could not load file '%@.plist' from bundle", filename);
+        }
+    }
 }
 
 void _SRFglobalNotificationCallback (CFNotificationCenterRef center,
