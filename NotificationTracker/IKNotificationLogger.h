@@ -13,8 +13,8 @@
  *
  * You can add manually new notification names with the +trackNotification: method
  * OR
- * create an entry in the bundle dictionary under the key '' containing the name of a plist
- * configuration file (without .plist extension).
+ * create an entry in the bundle dictionary under the key 'NotificationTrackerFile' 
+ * containing the name of a plist configuration file (without .plist extension).
  *
  * This file must contain a single array of notification keys/name.
  *
