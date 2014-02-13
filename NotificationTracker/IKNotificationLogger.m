@@ -68,7 +68,7 @@ static NSMutableSet *_notificationsFiltered = nil;
                           userInfo:nil];
 }
 
-static NSString* const kTrackerConfigFile = @"NotificationTrackerFile";
+NSString* const kNotificationLoggerConfigFileKey = @"NotificationTrackerFile";
 
 - (id)_init
 {
@@ -95,7 +95,7 @@ static NSString* const kTrackerConfigFile = @"NotificationTrackerFile";
 - (void)_initFiltersFromPlistFile
 {
     // Check if a plist exist
-    NSString* filename = [[[NSBundle bundleForClass:self.class] infoDictionary] valueForKey:kTrackerConfigFile];
+    NSString* filename = [[[NSBundle bundleForClass:self.class] infoDictionary] valueForKey:kNotificationLoggerConfigFileKey];
     if (filename)
     {
         // TODO: loading mechanism

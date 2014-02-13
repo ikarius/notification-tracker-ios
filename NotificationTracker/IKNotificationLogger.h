@@ -41,5 +41,6 @@
  */
 + (void)trackNotification:(NSString*)notificationName;
 
-
 @end
+
+extern NSString* const kNotificationLoggerConfigFileKey;
