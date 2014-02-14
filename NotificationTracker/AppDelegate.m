@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "IKNotificationLogger.h"
+#import "IKNotificationTracker.h"
 
 @implementation AppDelegate
 
@@ -15,7 +15,7 @@
 {
     // Override point for customization after application launch.
     
-    [IKNotificationLogger start];
+    [IKNotificationTracker start];
     
     return YES;
 }
