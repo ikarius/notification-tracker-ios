@@ -22,8 +22,8 @@
 		6624076318ACF5A900885401 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6624074218ACF5A900885401 /* UIKit.framework */; };
 		6624076B18ACF5A900885401 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6624076918ACF5A900885401 /* InfoPlist.strings */; };
 		6624076D18ACF5A900885401 /* NotificationTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6624076C18ACF5A900885401 /* NotificationTrackerTests.m */; };
-		6624077A18ACF63E00885401 /* IKNotificationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6624077918ACF63E00885401 /* IKNotificationLogger.m */; };
-		6624077B18ACF63E00885401 /* IKNotificationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6624077918ACF63E00885401 /* IKNotificationLogger.m */; };
+		6624077A18ACF63E00885401 /* IKNotificationTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6624077918ACF63E00885401 /* IKNotificationTracker.m */; };
+		6624077B18ACF63E00885401 /* IKNotificationTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6624077918ACF63E00885401 /* IKNotificationTracker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		6624076818ACF5A900885401 /* NotificationTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NotificationTrackerTests-Info.plist"; sourceTree = "<group>"; };
 		6624076A18ACF5A900885401 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6624076C18ACF5A900885401 /* NotificationTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTrackerTests.m; sourceTree = "<group>"; };
-		6624077818ACF63E00885401 /* IKNotificationLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKNotificationLogger.h; sourceTree = "<group>"; };
-		6624077918ACF63E00885401 /* IKNotificationLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKNotificationLogger.m; sourceTree = "<group>"; };
+		6624077818ACF63E00885401 /* IKNotificationTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKNotificationTracker.h; sourceTree = "<group>"; };
+		6624077918ACF63E00885401 /* IKNotificationTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKNotificationTracker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,8 +171,8 @@
 		6624077718ACF5DC00885401 /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				6624077818ACF63E00885401 /* IKNotificationLogger.h */,
-				6624077918ACF63E00885401 /* IKNotificationLogger.m */,
+				6624077818ACF63E00885401 /* IKNotificationTracker.h */,
+				6624077918ACF63E00885401 /* IKNotificationTracker.m */,
 			);
 			name = Tracker;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6624077A18ACF63E00885401 /* IKNotificationLogger.m in Sources */,
+				6624077A18ACF63E00885401 /* IKNotificationTracker.m in Sources */,
 				6624075818ACF5A900885401 /* ViewController.m in Sources */,
 				6624074F18ACF5A900885401 /* AppDelegate.m in Sources */,
 				6624074B18ACF5A900885401 /* main.m in Sources */,
@@ -286,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6624077B18ACF63E00885401 /* IKNotificationLogger.m in Sources */,
+				6624077B18ACF63E00885401 /* IKNotificationTracker.m in Sources */,
 				6624076D18ACF5A900885401 /* NotificationTrackerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +498,7 @@
 				6624077218ACF5A900885401 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6624077318ACF5A900885401 /* Build configuration list for PBXNativeTarget "NotificationTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +507,7 @@
 				6624077518ACF5A900885401 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
